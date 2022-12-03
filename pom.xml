@@ -60,62 +60,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.cayenne.plugins</groupId>
-				<artifactId>cayenne-maven-plugin</artifactId>
-				<version>${cayenne.version}</version>
-				<configuration>
-					<destDir>${project.basedir}/src/main/java</destDir>
-					<superTemplate>${project.basedir}/src/main/resources/wosuperclass41.vm</superTemplate>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.postgresql</groupId>
-						<artifactId>postgresql</artifactId>
-						<version>42.5.1</version>
-					</dependency>
-				</dependencies>
-				<executions>
-					<execution>
-						<id>nomster</id>
-						<goals>
-							<goal>cgen</goal>
-						</goals>
-						<configuration>
-							<map>${project.basedir}/src/main/resources/cayenne/nomster.map.xml</map>
-						</configuration>
-					</execution>
-					<execution>
-						<id>concept</id>
-						<goals>
-							<goal>cgen</goal>
-						</goals>
-						<configuration>
-							<map>${project.basedir}/src/main/resources/cayenne/concept.map.xml</map>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.openrewrite.maven</groupId>
-				<artifactId>rewrite-maven-plugin</artifactId>
-				<version>4.35.1</version>
-				<configuration>
-					<activeRecipes>
-						<!--
-						<recipe>org.openrewrite.samples.SayHelloVisitor</recipe>
-						-->
-						<recipe>is.rebbi.ngobjectize</recipe>
-					</activeRecipes>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>is.rebbi</groupId>
-						<artifactId>ng-rewrite-wo</artifactId>
-						<version>1.0.0-SNAPSHOT</version>
-					</dependency>
-				</dependencies>
-			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
@@ -132,6 +76,11 @@
 		<dependency>
 			<groupId>${wonder.ajax.group}</groupId>
 			<artifactId>Ajax</artifactId>
+			<version>${wonder.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>wonder.misc</groupId>
+			<artifactId>WOLips</artifactId>
 			<version>${wonder.version}</version>
 		</dependency>
 		<dependency>
